@@ -76,26 +76,30 @@
     .active {
         background-color: #FFEAD3;
         transition: all 0.2s;
-
+        box-shadow: none;
     }
 
     .question__btn {
-        width: 14px;
-        height: 8px;
+        width: 24px;
+        height: 24px;
         position: absolute;
         right: 100px;
-        top: 38px;
+        top: 30px;
         cursor: pointer;
+
     }
 
     .question__btn svg {
         position: absolute;
-        top: 0;
-        transform: rotate(-180deg);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-180deg);
+        cursor: pointer;
+
     }
 
     .active .question__btn svg {
-        transform: rotate(0);
+        transform: translate(-50%, -50%) rotate(0);
     }
 
     .question__text {
@@ -260,7 +264,9 @@
             question.addEventListener('click', event => {
                 let target = event.target;
 
-                if (target.classList.contains('btn-arrows')) {
+                console.log(target)
+
+                if (target.classList.contains('btn-arrows') || target.classList.contains('question__btn')) {
                     question.classList.toggle('active');
                 }
             });
